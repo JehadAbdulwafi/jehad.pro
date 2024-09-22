@@ -1,0 +1,32 @@
+@import '@styles/variables/all';
+@import '@styles/mixins/all';
+
+.container {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  @include hl-margin(top, 40px);
+  padding: 0;
+
+  @media screen and (min-width: $md) {
+    display: flex;
+    grid-row: 2;
+    @include col-width(4, 36);
+  }
+
+  @media screen and (min-width: $lg) {
+    @include col-width(7, 36);
+  }
+
+  img {
+    display: block;
+    width: auto;
+    @include hl-height(40px);
+    margin: 0 auto;
+  }
+
+  &.reversed {
+    @include col-width(30, 59);
+  }
+}

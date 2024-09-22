@@ -1,0 +1,202 @@
+@import "@styles/variables/all";
+@import "@styles/mixins/all";
+@import "@functions/functions";
+
+.testimonial {
+  &Wrapper {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+
+    @media screen and (max-width: 1270px) {
+      padding: 0 0 0 32px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 0 0px 88px 0px;
+      flex-direction: column;
+    }
+  }
+
+  &Info {
+    position: relative;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: calc(400px);
+    max-width: calc(400px);
+    flex: 1;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    padding-left: calc((50% - 605px));
+
+    @media screen and (max-width: 1270px) {
+      padding-left: 0;
+    }
+
+    @media screen and (max-width: 1100px) {
+      min-width: 300px;
+      max-width: 300px;
+    }
+
+    @media screen and (max-width: 768px) {
+      position: static;
+      background: transparent;
+      min-width: 100%;
+      max-width: 100%;
+      padding: 0;
+      align-items: center;
+    }
+  }
+
+  &Slider {
+    &Container {
+      display: flex;
+      justify-content: flex-start;
+      overflow: hidden;
+      height: 100%;
+      padding: 60px 40px;
+
+      @media screen and (max-width: 768px) {
+        padding: 32px 0;
+        overflow: visible;
+        justify-content: center;
+      }
+    }
+  }
+  .title {
+    margin-bottom: 2rem;
+  }
+
+  &Navigation {
+    display: flex;
+    margin-top: auto;
+    padding-top: 40px;
+    padding-bottom: 36px;
+    gap: 16px;
+
+    @media screen and (max-width: 768px) {
+      position: absolute;
+      bottom: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0;
+    }
+
+    &Button {
+      display: flex;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid rgba(33, 51, 79, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      outline: none;
+      & div div {
+        width: 0px;
+        height: 0px;
+        // transform: scale(2.7);
+        background: #3827c8;
+        position: absolute;
+        z-index: -1;
+        border-radius: 9999px;
+      }
+      &:hover {
+        border: 1px solid #3827c8;
+        & div svg {
+          animation: buttonToLeft 0.7s ease forwards;
+        }
+        & div div {
+          animation: buttonDiv 0.7s ease forwards;
+        }
+        & div svg path {
+          animation: buttonDivPath 0.7s ease forwards;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        width: 48px;
+        height: 48px;
+      }
+
+      &Next {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.testimonialSlider {
+  overflow: hidden;
+  padding-left: 20px;
+  width: calc(100% + 20px);
+  margin-left: 20px;
+  padding-top: 20px;
+  margin-top: -20px;
+  padding-bottom: 20px;
+  margin-bottom: -20px;
+  // background: red;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  :global(.swiper-slide) {
+    width: 400px !important;
+    @media screen and (max-width: 768px) {
+      width: 312px !important;
+    }
+  }
+
+  :global {
+    .swiper {
+      overflow: initial;
+    }
+  }
+}
+
+// go left and return from right
+@keyframes buttonToLeft {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  51% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes buttonDiv {
+  0% {
+    opacity: 1;
+    background: #000;
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    transform: scale(2.7);
+    width: 100%;
+    height: 100%;
+  }
+}
+@keyframes buttonDivPath {
+  100% {
+    stroke: #fff;
+  }
+}

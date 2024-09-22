@@ -1,0 +1,36 @@
+@import '@styles/variables/all';
+@import '@styles/mixins/all';
+
+.container {
+  @include grid-template();
+  @include hl-margin(top, 200px);
+  @include hl-margin(bottom, 200px);
+}
+
+.title {
+  @include col-width(9, 24);
+  font-family: $font-gramatika;
+  font-weight: 900;
+  @include hl-font-size-title(30px);
+  line-height: 1.53em;
+
+  @include media-breakpoint-down(sm) {
+    @include col-width(5, 61);
+    @include hl-margin(bottom, 60px);
+  }
+}
+
+.description {
+  @include col-width(30, 57);
+  @include hl-font-size-text(18px);
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+  margin-top: -4px;
+
+  @include media-breakpoint-down(sm) {
+    @include col-width(5, 61);
+    margin: 0;
+  }
+}

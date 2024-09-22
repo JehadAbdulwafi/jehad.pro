@@ -1,0 +1,20 @@
+@import '@styles/variables/all';
+@import '@styles/mixins/all';
+@import '@functions/functions';
+
+.title {
+  font-family: $font-gramatika;
+  @include hl-font-size-title(86px);
+  line-height: 1.25em;
+  color: $white-color;
+  font-weight: 900;
+  @include hl-margin(bottom, 100px);
+  text-align: center;
+  letter-spacing: -2px;
+  @include media-breakpoint-down(md) {
+    line-height: 1.46em;
+  }
+  @include media-breakpoint-down(sm) {
+    line-height: 1.1em;
+  }
+}

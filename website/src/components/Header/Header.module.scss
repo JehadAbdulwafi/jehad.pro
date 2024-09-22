@@ -1,0 +1,310 @@
+@import "@styles/variables/all";
+@import "@styles/mixins/all";
+
+$header-transition: all 0.3s;
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2rem 2rem 1rem;
+  transition: $header-transition;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+
+  .contact {
+    transition: $header-transition;
+  }
+
+  .logotype {
+    svg {
+      @include hl-font-size-text(18px);
+      @include hl-width(180px);
+      @include hl-height(60px);
+    }
+    path:nth-of-type(1),
+    path:nth-of-type(3) {
+      transition: $header-transition;
+    }
+  }
+
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: $header-transition;
+  }
+
+  &:before {
+    background: linear-gradient(0deg, rgba(2, 2, 30, 0.0001) 0%, #02021e 98%);
+  }
+
+  &:after {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 98%
+    );
+    opacity: 0;
+  }
+
+  @media screen and (min-width: $md) {
+    @include hl-padding(top, 18px);
+    @include hl-padding(left, 80px);
+    @include hl-padding(right, 80px);
+    @include hl-padding(bottom, 20px);
+  }
+}
+
+.isWhite {
+  background: $dark-color;
+  padding: 0.5rem 2rem;
+  &:before {
+    opacity: 0;
+  }
+
+  &:after {
+    opacity: 0;
+  }
+
+  .menuButton {
+    box-shadow: inset 0 0 0 1px rgba($color: $white-color, $alpha: 0.2);
+    &:hover {
+      .menuIcon {
+        background-color: #fff;
+
+        &:before,
+        &:after {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  .menuIcon {
+    // background-color: #02021e;
+
+    &:before,
+    &:after {
+      // background-color: #02021e;
+    }
+  }
+
+  .logotype {
+    path:nth-of-type(1),
+    path:nth-of-type(3) {
+      // fill: #02021e;
+    }
+  }
+
+  .contact {
+    // color: #02021e;
+    // border-color: rgba(2, 2, 30, 0.2);
+
+    &:hover {
+      // color: #fff;
+    }
+  }
+}
+
+.isShow {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.bar {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logotype {
+  position: relative;
+  z-index: 50;
+  // margin-right: auto;
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    display: inline-block;
+    width: auto;
+    max-height: 40px;
+
+    @media screen and (min-width: $lg) {
+      @include hl-height(40px);
+      max-height: 100%;
+    }
+  }
+}
+
+.contact {
+  z-index: 50;
+  font-family: $font-cairo;
+  @include hl-font-size-text(18px);
+  font-weight: 300;
+  transition: $header-transition;
+  height: 100%;
+  @include hl-height(60px);
+  text-decoration: none;
+  color: $white-color;
+  letter-spacing: 0.5px;
+  box-sizing: border-box;
+  // font-size: 1.167rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #fafafa;
+
+  @media screen and (max-width: $md) {
+    display: none;
+  }
+
+  &[data-status="opened"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:hover {
+    color: $main-color;
+    // background-color: $main-color;
+  }
+}
+
+.menuBar {
+  display: none;
+
+  @include media-breakpoint-down(md) {
+  display: block;
+  position: relative;
+  z-index: 50;
+  @include hl-margin(left, 20px);
+  }
+}
+
+.menuButton {
+  @include hl-height(60px);
+  @include hl-width(60px);
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba($color: $white-color, $alpha: 0.2);
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: $header-transition;
+
+  // fix for safari bug when overflow hidden doesn't work for round corners
+  // https://forum.webflow.com/t/overflow-hidden-round-corners-not-working-on-safari/67805
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+
+  @media screen and (min-width: $lg) {
+    &:hover {
+      box-shadow: inset 0 0 0 1px $main-color;
+      background-color: $main-color;
+
+      &:after {
+        transform: translateX(0%);
+      }
+    }
+  }
+
+  @media screen and (min-width: $xxl) {
+    box-shadow: inset 0 0 0 2px #32344d;
+
+    &:hover {
+      box-shadow: inset 0 0 0 2px $main-color;
+    }
+  }
+}
+
+.menuIcon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: block;
+  border-radius: 35px;
+  width: 37%;
+  height: 0.15rem;
+  margin: auto;
+  background-color: #fff;
+  transition: $header-transition;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    border-radius: 35px;
+    height: 0.15rem;
+    width: 70%;
+    background: #fff;
+    transition: $header-transition;
+  }
+
+  &:before {
+    margin-top: -0.5rem;
+  }
+
+  &:after {
+    margin-top: 0.5rem;
+  }
+
+  &[data-status="opened"] {
+    background-color: transparent;
+
+    &:before {
+      top: 0.45rem;
+      transform: translateX(-50%) rotate(45deg);
+      width: 100%;
+    }
+
+    &:after {
+      top: -0.55rem;
+      transform: translateX(-50%) rotate(-45deg);
+      width: 100%;
+    }
+  }
+}
+
+.hiddenTitle {
+  position: absolute;
+  left: -9999px;
+}
+
+.gradient-is-removed {
+  &:before {
+    display: none;
+  }
+
+  .menuButton:hover {
+    box-shadow: inset 0 0 0 1px rgba(#fff, 0.6);
+  }
+}
+
+.navItems {
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  z-index: 50;
+  position: relative;
+  gap: 1.5rem;
+}

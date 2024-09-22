@@ -1,0 +1,135 @@
+@import "@styles/variables/all";
+@import "@styles/mixins/all";
+@import "@functions/functions";
+div .testimonialItem {
+  width: 500px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100%;
+  width: 400px;
+  height: 600px;
+  padding: 32px;
+  border-radius: 20px;
+  background: rgb(56, 39, 200);
+
+  @media screen and (max-width: 768px) {
+    width: 312px;
+    padding: 24px;
+    height: 400px;
+  }
+
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   width: 1px;
+  //   height: 90%;
+  //   background-color: #32344d;
+  //   opacity: 0.5;
+  //   top: 5%;
+  //   left: hl-grid-multiplier(11);
+  // }
+  @include media-breakpoint-down(md) {
+    // margin-left: 15px;
+    // margin-right: 15px;
+    max-width: 100%;
+  }
+  @include media-breakpoint-down(sm) {
+    display: flex;
+    flex-direction: column;
+    width: 312px;
+    padding: 24px;
+    height: 400px;
+  }
+}
+
+.review {
+  @include col-width(15, 40);
+  display: flex;
+  flex-direction: column;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include col-width(4, 9);
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 3rem;
+  }
+}
+
+.mark {
+  font-family: $font-gramatika;
+  font-weight: 700;
+  @include hl-font-size-title(58px);
+  line-height: 1.25;
+  @include hl-margin(bottom, 10px);
+  margin-top: auto;
+  @include media-breakpoint-down(sm) {
+    --coef-title: 0.7;
+  }
+}
+
+.stars {
+  display: block;
+  height: auto;
+  @include hl-width(100px);
+  margin-bottom: auto;
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 16px;
+  }
+}
+
+.text {
+  position: relative;
+  font-family: $font-gramatika;
+  font-weight: 700;
+  @include hl-font-size-title(30px);
+  line-height: 1.25;
+  padding-top: 1.6rem;
+  @include hl-margin(bottom, 70px);
+  &::before {
+    content: "";
+    position: absolute;
+    @include hl-width(42px);
+    @include hl-height(44px);
+    background-image: url("./images/qoute.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: -20px;
+    left: -4px;
+  }
+  @include media-breakpoint-down(sm) {
+    --coef-title: 0.7;
+  }
+}
+
+.name {
+  margin-top: auto;
+  @include hl-font-size-text(14px);
+  color: $light-grey-color;
+  @include media-breakpoint-down(sm) {
+    --coef-text: 0.8;
+  }
+}
+
+.generalLogo {
+  @include hl-width(42px);
+  height: auto;
+  @media screen and (max-width: $md) {
+    --coef-size: 1;
+  }
+}
+.author {
+  // background: #000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}

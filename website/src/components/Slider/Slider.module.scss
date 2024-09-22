@@ -1,0 +1,52 @@
+@import '@styles/variables/all';
+@import '@styles/mixins/all';
+
+.dots {
+  list-style-type: none;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  @include hl-margin(top, 50px);
+  padding: 0;
+
+  [class='slick-active'] button {
+    background: $white-color;
+  }
+
+  li {
+    margin: 0 8px;
+
+    @media screen and (min-width: 2400px) {
+      margin: 0 0.25vw;
+    }
+  }
+
+  .button {
+    $size: 10px;
+
+    overflow: hidden;
+    position: relative;
+    display: block;
+    border: none;
+    padding: 0;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background: #32344d;
+    cursor: pointer;
+
+    @media screen and (min-width: 2400px) {
+      width: 0.33vw;
+      height: 0.33vw;
+    }
+    @media (min-width: 2000px) {
+      width: 0.4vw;
+      height: 0.4vw;
+    }
+  }
+
+  .title {
+    position: absolute;
+    left: -9999px;
+  }
+}

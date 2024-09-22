@@ -1,0 +1,132 @@
+@import "@styles/variables/all";
+@import "@styles/mixins/all";
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  max-width: 22rem;
+  position: relative;
+  @include media-breakpoint-down(md) {
+    max-width: 100%;
+  }
+  // margin-top: 5rem;
+}
+
+.sliderTOC {
+  position: relative;
+  // top: auto;
+  max-width: 22rem;
+  @include media-breakpoint-down(md) {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+  }
+  z-index: 1;
+}
+
+.sticky {
+  position: fixed;
+  top: 40px;
+  transition: transform 0.3s;
+  @include media-breakpoint-down(md) {
+    position: relative;
+    top: 0;
+  }
+}
+
+.sticky.show {
+  transform: translateY(5rem);
+  @include media-breakpoint-down(md) {
+    transition: none;
+    transform: none !important;
+  }
+}
+
+.toc {
+  grid-row-gap: 2rem;
+  border: 0.0625rem solid rgba(221, 221, 221, 0.3);
+  border-radius: 1.5rem;
+  flex-direction: column;
+  padding: 2.5rem;
+  display: flex;
+  // position: relative;
+  // top: 0;
+}
+
+.title {
+  z-index: 2;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-family: $font-cairo;
+  line-height: 1.2;
+  position: relative;
+}
+
+.listScroll {
+  margin-left: -2.6rem;
+  margin-right: -1rem;
+  // overscroll-behavior: contain;
+}
+
+.list {
+  grid-row-gap: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  list-style-type: square;
+  display: flex;
+
+  & .listItem {
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    font-weight: 400;
+    font-family: "cairo", "sans-serif";
+    cursor: pointer;
+    // transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    text-decoration: none;
+
+    & a {
+      text-decoration: inherit;
+      color: inherit;
+    }
+  }
+}
+
+.wrapperProgress {
+  box-sizing: border-box;
+  padding: 0 1rem;
+  width: 100%;
+  height: 0.25rem;
+}
+
+.progress {
+  width: 100%;
+  height: 0.25rem;
+  background: rgba(221, 221, 221, 0.3);
+  border-radius: 0.25rem;
+
+  margin: 2rem 0;
+}
+.innerProgress {
+  width: 0%;
+  height: 0.25rem;
+  background: $main-color;
+  border-radius: 0.25rem;
+}
+
+.WrapperReadTime {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  .readTime {
+    z-index: 2;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-family: $font-cairo;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+}

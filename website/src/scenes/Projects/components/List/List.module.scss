@@ -1,0 +1,17 @@
+@import '@styles/variables/all';
+@import '@styles/mixins/all';
+@import '@functions/functions';
+
+.container {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  @include grid-template();
+
+  & + .item {
+    @include hl-margin(top, 140px);
+  }
+}

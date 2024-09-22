@@ -1,0 +1,28 @@
+@import '@styles/variables/all';
+@import '@styles/mixins/all';
+@import '@functions/functions';
+
+.container {
+  @include grid-template();
+  @include hl-margin(top, 200px);
+}
+
+.aside {
+  @include col-width(7, 23);
+  @include media-breakpoint-down(md) {
+    @include col-width(4, 22);
+  }
+  @include media-breakpoint-down(sm) {
+    @include col-width(5, 61);
+  }
+}
+
+.main {
+  @include col-width(28, 59);
+  @include media-breakpoint-down(md) {
+    @include col-width(28, 61);
+  }
+  @include media-breakpoint-down(sm) {
+    @include col-width(5, 59);
+  }
+}

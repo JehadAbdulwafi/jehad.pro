@@ -1,0 +1,28 @@
+@import '@styles/variables/all';
+@import '@styles/mixins/all';
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.title {
+  font-family: $font-gramatika;
+  font-size: 6.7rem;
+  line-height: 1.2;
+  color: $white-color;
+  font-weight: 900;
+  margin-bottom: 5.7rem;
+  text-align: center;
+
+  @include media-breakpoint-down(md) {
+    font-size: 6.25rem;
+    line-height: 1.46em;
+    margin-bottom: 5rem;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 3.5rem;
+    line-height: 1.1em;
+    margin-bottom: 2.5rem;
+  }
+}

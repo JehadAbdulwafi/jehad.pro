@@ -1,0 +1,51 @@
+@import '@styles/variables/all';
+@import '@styles/mixins/all';
+
+.container {
+  position: relative;
+  @include hl-padding(top, 100px);
+  @media screen and (max-width: $md) {
+    --coef-indent: 0.7;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    @include hl-width(60px);
+    @include hl-height(60px);
+    border-radius: 50%;
+    background-image: url('./images/logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 0;
+    left: 0;
+  }
+}
+
+.title {
+  font-family: $font-gramatika;
+  font-weight: 900;
+  @include hl-font-size-title(30px);
+  @include hl-margin(bottom, 60px);
+  line-height: 1.35;
+}
+
+// TODO: Create component for this element
+.link {
+  position: relative;
+
+  margin-right: -10px;
+
+  color: $white-color;
+
+  font-weight: 600;
+  @include hl-font-size-text(14px);
+  line-height: 1.4em;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 10px;
+
+  @media screen and (max-width: $md) {
+    display: none;
+  }
+}

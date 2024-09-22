@@ -1,0 +1,33 @@
+@import '@styles/mixins/all';
+@import '@functions/functions';
+
+.container {
+  overflow: hidden;
+  position: relative;
+}
+
+.ticker {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  will-change: transform;
+}
+
+.asideLeft,
+.asideRight {
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  z-index: 10;
+}
+
+.asideLeft {
+  left: 0;
+}
+
+.asideRight {
+  right: 0;
+}

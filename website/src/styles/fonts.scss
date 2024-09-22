@@ -1,0 +1,34 @@
+@import "@styles/variables/all";
+@import "@styles/mixins/all";
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+// GRAMATIKA FONT
+
+@font-face {
+  font-family: "Gramatika";
+  src: local("Gramatika Black"), local("Gramatika-Black"),
+    url("../assets/fonts/Gramatika/Gramatika - Black.woff2") format("woff2"),
+    url("../assets/fonts/Gramatika/Gramatika - Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gramatika";
+  src: local("Gramatika Bold"), local("Gramatika-Bold"),
+    url("../assets/fonts/Gramatika/Gramatika - Bold.woff2") format("woff2"),
+    url("../assets/fonts/Gramatika/Gramatika - Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gramatika";
+  src: local("Gramatika Regular"), local("Gramatika-Regular"),
+    url("../assets/fonts/Gramatika/Gramatika - Regular.woff2") format("woff2"),
+    url("../assets/fonts/Gramatika/Gramatika - Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

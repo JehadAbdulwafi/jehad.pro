@@ -1,0 +1,124 @@
+@import "@styles/variables/all";
+@import "@styles/mixins/all";
+
+.container {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  direction: rtl;
+}
+
+.link {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: linear-gradient(
+    123.69deg,
+    #0a0c2d 28.53%,
+    rgba(10, 12, 45, 0) 93.53%
+  );
+  overflow: hidden;
+}
+
+.thumbnail {
+  position: relative;
+  padding-bottom: 75%;
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+
+  & > img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.image {
+  background: linear-gradient(89.69deg, #3719ca 0.16%, #8161fe 99.8%);
+  mix-blend-mode: normal;
+}
+
+.title {
+  font-family: $font-cairo;
+  z-index: 10;
+  @include hl-font-size-text(20px);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: #ffffff;
+  transition: transform 0.2s;
+  text-align: start;
+
+  > a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.tag {
+  font-family: $font-gramatika;
+  font-weight: 700;
+  line-height: 1.5;
+  @include hl-font-size-text(12px);
+  @include hl-margin(top, 30px);
+  @include hl-margin(bottom, 10px);
+  color: #6d6978;
+  text-transform: uppercase;
+  text-align: start;
+}
+
+.hiddenTitle {
+  position: absolute;
+  left: -9999px;
+}
+
+.firstArticle {
+  @media screen and (min-width: $sm) {
+    .link {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+
+      div {
+        width: 54.4%;
+        margin-left: auto;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          142.15deg,
+          rgba(132, 164, 255, 0.2) 8.42%,
+          rgba(2, 2, 30, 0) 76.6%
+        );
+        opacity: 0.6;
+      }
+    }
+    .wrapper {
+      position: absolute;
+      left: calc(var(--coef-indent) * 60px);
+      bottom: calc(var(--coef-indent) * 40px);
+      max-width: 34%;
+      text-align: start;
+    }
+    .title {
+      font-family: $font-cairo;
+      font-weight: 700;
+      @include hl-font-size-title(36px);
+      line-height: 1.4;
+    }
+  }
+}

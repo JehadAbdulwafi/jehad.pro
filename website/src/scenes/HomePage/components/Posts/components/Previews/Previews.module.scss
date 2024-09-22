@@ -1,0 +1,23 @@
+@import '@styles/variables/all';
+@import '@styles/mixins/all';
+
+.link {
+  position: relative;
+
+  margin-top: 2.5rem;
+  margin-right: -0.36em;
+
+  display: inline-block;
+
+  color: $white-color;
+  font-weight: 600;
+  @include hl-font-size-text(14px);
+  line-height: 1.4em;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}

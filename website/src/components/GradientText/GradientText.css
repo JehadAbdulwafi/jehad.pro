@@ -1,0 +1,8 @@
+.text {
+  color: tomato;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  font-family: 'cairo', 'sans-serif';
+  box-decoration-break: clone;
+}

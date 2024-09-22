@@ -1,0 +1,27 @@
+.testimonialSliderContainer {
+  // height: 500px !important;
+  // background: green;
+}
+
+.testimonialSlider {
+  overflow: hidden;
+  // background: red;
+  height: 100% !important;
+  // min-height: 622px;
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  :global(.swiper-slide) {
+    height: 100% !important;
+    // background-color: green;
+  }
+
+  :global {
+    .swiper {
+      overflow: initial;
+    }
+  }
+}

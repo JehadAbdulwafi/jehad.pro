@@ -1,0 +1,89 @@
+@import "@styles/variables/all";
+@import "@styles/mixins/all";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  &:not(:first-child) {
+    position: relative;
+    @include hl-margin(top, 80px);
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(100% + 40px);
+      height: 1px;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #32344d;
+      @media screen and (max-width: $md) {
+        top: -30px;
+      }
+      @media screen and (max-width: $sm) {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: $md) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.imageBox {
+  flex: 0 0 auto;
+  width: 100%;
+  background: linear-gradient(
+    123.69deg,
+    $main-color 28.53%,
+    $main-color 93.53%
+  );
+  // border: 1px solid #323453;
+  border-radius: 10px;
+  @media screen and (min-width: $md) {
+    @include hl-width(180px);
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.description {
+  margin-top: 2rem;
+
+  @media screen and (min-width: $md) {
+    margin-top: 0;
+    margin-left: 40px;
+  }
+
+  @media screen and (min-width: $lg) {
+    margin-left: 60px;
+  }
+}
+
+.tag {
+  font-family: $font-gramatika;
+  font-weight: 700;
+  @include hl-font-size-text(12px);
+  margin-bottom: 0.7em;
+  color: $light-grey-color;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: $font-sofia-pro;
+  font-weight: 600;
+  @include hl-font-size-text(22px);
+  line-height: 1.4em;
+  font-weight: 400;
+
+  a {
+    text-decoration: none;
+    color: $white-color;
+  }
+}

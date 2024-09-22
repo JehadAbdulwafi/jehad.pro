@@ -1,0 +1,74 @@
+@import '@styles/variables/all';
+@import '@styles/mixins/all';
+@import '@functions/functions';
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  @include hl-margin(bottom, 100px);
+  @include hl-padding(top, 75px);
+  @media screen and (max-width: $md) {
+    padding: 0 20px;
+  }
+}
+
+
+.title {
+  font-family: $font-gramatika;
+  font-weight: 900;
+  color: $white-color;
+  @include hl-font-size-title(86px);
+  line-height: 1.25em;
+  letter-spacing: -2px;
+  text-transform: capitalize;
+}
+
+.link {
+  display: block;
+  position: absolute;
+  left: hl-grid-multiplier(51);
+  top: 0;
+  line-height: 0;
+  @include hl-width(120px);
+  @media screen and (min-width: 1280px) {
+    left: calc(50% + 380px);
+  }
+
+  @media screen and (max-width: $md) {
+    display: none;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  &:hover {
+    .icon {
+      transform: rotate(360deg);
+      filter: invert(52%) sepia(26%) saturate(5887%) hue-rotate(303deg) brightness(81%);
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  max-width: 3.18rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transition: transform 1s ease;
+  will-change: transform;
+}
+
+@keyframes dribbleAnimationRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

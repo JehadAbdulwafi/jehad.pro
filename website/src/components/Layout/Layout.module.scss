@@ -1,0 +1,53 @@
+@import '@styles/variables/all';
+@import '@styles/mixins/all';
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.glow {
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    max-width: 1185px;
+    height: 1076px;
+    background: radial-gradient(
+      41.38% 40.85% at 56.08% 46.24%,
+      #3719ca 0%,
+      rgba(55, 25, 202, 0) 100%
+    );
+    opacity: 0.4;
+    top: -756px;
+  }
+}
+
+.header,
+.footer {
+  flex-shrink: 0;
+}
+
+.footer {
+  position: relative;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.locked {
+  overflow: hidden;
+
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.hidden {
+  transition: opacity 0.2s;
+}

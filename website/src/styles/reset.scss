@@ -1,0 +1,95 @@
+@import "@styles/variables/all";
+@import "@styles/mixins/all";
+
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3719ca;
+  border-radius: 2px;
+}
+
+body {
+  // overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  color: #fff;
+  background: $dark-color;
+}
+
+// legacy -->
+
+@import "@styles/normalize.scss";
+
+* {
+  outline: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+
+  @include fluid-type(1920px, 5120px, 18px, 20px);
+
+  @media screen and (max-width: 1920px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 1400px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 1200px) {
+    font-size: 12px;
+  }
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.slider .slick-track {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.slider .slick-slide {
+  float: none;
+  height: auto;
+  & > div {
+    display: flex;
+    align-items: center;
+    transform: scaleY(0.8);
+    transition: 0.5s;
+  }
+  &.slick-active {
+    > div {
+      transform: scaleY(1);
+    }
+  }
+}
